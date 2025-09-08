@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ID Number Check</title>
+    <style>
+        .error {
+            color: red;
+            display: none;
+            font-size: 20px;
+            /* margin-top: 10px; */
+            position: absolute;
+            top: 260px;
+            left: 80px;
+
+
+        }
+
+        .card {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            width: 300px;
+            padding: 20px;
+            height: 300px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        input {
+            position: relative;
+            left: 0px;
+            width: 250px;
+            height: 30px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            padding: 5px;
+            font-size: 16px;
+            margin-top: 10px;
+            background-color: lightgray;
+            color: black;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        }
+
+        button {
+            position: absolute;
+            top: 230px;
+            left: 130px;
+            width: 80px;
+            height: 30px;
+            border-radius: 5px;
+            border: none;
+            background-color: rgba(0, 0, 255, 0.681);
+            color: white;
+            font-size: 15px;
+            font-style: italic;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="card">
+        <h2>Enter Your Name</h2>
+        <input type="text" id="nameinput" placeholder="Enter Your Name"><br><br>
+        <input type="text" id="collegeinput" placeholder="Enter Your College Name">
+        <div class="button">
+            <button onclick="checkID()">Enter</button>
+            <p class="error" id="errorMsg">Please enter your Name</p>
+        </div>
+        <script>
+            function checkID() {
+                let username = document.getElementById("nameinput").value.trim();
+                let Branch = document.getElementById("collegeinput").value.trim();
+
+                // Define valid range
+                let name = " ";
+                let college = " ";
+                // let maxID = "23A11A0570";
+
+                if (username >= name || username >= college) {
+                    document.getElementById("errorMsg").style.display = "none";
+                    alert("Access Granted!");
+
+                    // ✅ Valid → go to another page
+                    window.location.href = "nextpage.html";
+                } else {
+                    document.getElementById("errorMsg").style.display = "block";
+                    // ❌ Invalid → show error
+                    alert("Enter your name");
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>
